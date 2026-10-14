@@ -4,7 +4,7 @@ Aplicação de estudo em React e TypeScript para comparar os preços por litro d
 
 ## Executar
 
-Use Node.js 22.18 ou superior e npm. Na raiz do projeto:
+Use Node.js 22.22.2 ou superior da linha 22, ou Node.js 24.15 ou superior da linha 24, e npm. Na raiz do projeto:
 
 ```
 npm ci
