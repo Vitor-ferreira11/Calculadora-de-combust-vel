@@ -46,7 +46,7 @@
 }
 
 .result{
-    background-color: #00b63e;
+    background-color: #087b34;
     width: 100%;
     max-width: 420px;
     padding: 20px 28px;
@@ -65,9 +65,13 @@
 .result-title{
     font-weight: bold;
     font-size: 24px;
-    color: 25px ;
+    color: #fff;
     margin-bottom: 16px;
 }
+
+.note, .error { color: #fff; margin-top: 16px; text-align: center; }
+.input:focus-visible, .button:focus-visible { outline: 3px solid #f9d66b; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .result { transition: none; } .result:hover { transform: none; } }
 
 .result span{
     color: #fff;
