@@ -1,54 +1,32 @@
-# React + TypeScript + Vite
+# Calculadora de combustível
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação de estudo em React e TypeScript para comparar os preços por litro de álcool e gasolina. Usa a regra aproximada de 70%: razão álcool/gasolina menor ou igual a 0,70 recomenda álcool; acima disso, gasolina. O consumo real depende do veículo.
 
-Currently, two official plugins are available:
+## Executar
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Use Node.js 22.22.2 ou superior da linha 22, ou Node.js 24.15 ou superior da linha 24, e npm. Na raiz do projeto:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+npm ci
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Abra o endereço mostrado pelo Vite. Não são necessárias chaves de API.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Verificar
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+npm run build
+npm run lint
+node --experimental-strip-types --test tests/fuel.test.mjs
+```
+
+Os testes cobrem os valores abaixo, igual e acima de 70% e preços inválidos. O navegador exige campos preenchidos e positivos; o cálculo também valida preços finitos maiores que zero. Alterar um preço limpa o resultado anterior para evitar uma recomendação desatualizada.
+
+## Estrutura
+
+- `src/App.tsx`: formulário e apresentação do resultado.
+- `src/fuel.ts`: validação e regra de comparação.
+- `tests/fuel.test.mjs`: testes da regra.
+
+Projeto educacional; não utiliza o consumo real do veículo. Os arquivos `pnpm-lock.yaml` e `node_modules` produzidos na verificação local não fazem parte desta proposta; o lockfile do projeto permanece `package-lock.json`.

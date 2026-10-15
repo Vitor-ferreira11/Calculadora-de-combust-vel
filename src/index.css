@@ -6,7 +6,8 @@
 
 body{
   background-color: #22272e;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 24px 0;
   display: flex;
   align-items: center;
   justify-content: center;
