@@ -1,5 +1,7 @@
 # Calculadora de combustível
 
+**[Abrir demonstração](https://vitor-ferreira11-calculadora.cozyseed5.chatgpt.site)**
+
 Aplicação de estudo em React e TypeScript para comparar os preços por litro de álcool e gasolina. Usa a regra aproximada de 70%: razão álcool/gasolina menor ou igual a 0,70 recomenda álcool; acima disso, gasolina. O consumo real depende do veículo.
 
 ## Executar
